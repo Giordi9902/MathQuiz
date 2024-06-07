@@ -90,23 +90,23 @@ const questions = [
 	},
 
 	{
-		question: "All'espressione $5 \\cdot a^3 \\cdot b^2 \\cdot c)^2$ viene applicata una proprietà delle potenze. Qual è l'espressione equivalente ottenuta?",
+		question: "All'espressione $(5 \\cdot a^3 \\cdot b^2 \\cdot c)^2$ viene applicata una proprietà delle potenze. Qual è l'espressione equivalente ottenuta?",
 		answers:
 		[
 			{
-				text: "25 \\cdot a^3 \\cdot b^2 \\cdot c^2",
+				text: "$25 \\cdot a^3 \\cdot b^2 \\cdot c^2$",
 				correct: false
 			},
 			{
-				text: "25 \\cdot a^6 \\cdot b^4 \\cdot c^2",
+				text: "$25 \\cdot a^6 \\cdot b^4 \\cdot c^2$",
 				correct: true
 			},
 			{
-				text: " 25 \\cdot a^6 \\cdot b^2 \\cdot c",
+				text: " $25 \\cdot a^6 \\cdot b^2 \\cdot c$",
 				correct: false,
 			},
 			{
-				text: " 5 \\cdot a^3 \\cdot b^2 \\cdot c^2",
+				text: " $5 \\cdot a^3 \\cdot b^2 \\cdot c^2$",
 				correct: false
 			}
 		]
@@ -147,7 +147,7 @@ function setNextQuestion() {
 }
 
 function showQuestion(question) {
-  questionElement.innerText = question.question;
+  questionElement.innerHTML = question.question;
   question.answers.forEach((answer, index) => {
     const inputGroup = document.createElement("div");
     inputGroup.classList.add("input-group");
@@ -166,6 +166,7 @@ function showQuestion(question) {
     inputGroup.appendChild(label);
     answerButtons.appendChild(inputGroup);
   });
+   MathJax.typesetPromise();
 }
 
 function resetState() {
